@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Luyện phỏng vấn QA bằng tiếng Anh">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>QA Interview English</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap">
+<style>
+
+/* Layout: sổ tay học mỗi ngày — header có tiến độ, thanh tab, một cột nội dung rộng tối đa 920px */
+:root{
+  --paper:#F2F5F6; --card:#FFFFFF; --ink:#16232B; --muted:#5A6A74; --line:#D7DFE3;
+  --sea:#1C5E6A; --sea-soft:#DCEBEE; --gold:#E7A923; --gold-ink:#875B00; --gold-soft:#FBEFD2;
+  --good:#2D7A4C; --good-soft:#DDF0E3; --bad:#B23A2E; --bad-soft:#F7E0DC;
+  --f-display:"Bricolage Grotesque","Be Vietnam Pro",system-ui,sans-serif;
+  --f-body:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0F171B; --card:#162127; --ink:#E4ECEF; --muted:#97A8B1; --line:#27353C;
+  --sea:#6CB8C5; --sea-soft:#1A3238; --gold:#F0B83A; --gold-ink:#F0B83A; --gold-soft:#33290F;
+  --good:#6CC28E; --good-soft:#163024; --bad:#F08A7E; --bad-soft:#3A1D19; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0F171B; --card:#162127; --ink:#E4ECEF; --muted:#97A8B1; --line:#27353C;
+  --sea:#6CB8C5; --sea-soft:#1A3238; --gold:#F0B83A; --gold-ink:#F0B83A; --gold-soft:#33290F;
+  --good:#6CC28E; --good-soft:#163024; --bad:#F08A7E; --bad-soft:#3A1D19; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.55}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.wrap{max-width:920px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.top{padding-block:28px 12px}
+.brand{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px}
+h1{font-family:var(--f-display);font-weight:800;font-size:clamp(28px,5vw,40px);line-height:1.05;margin:0;letter-spacing:-.02em;text-wrap:balance}
+h1 .num{color:var(--gold-ink)}
+.sub{color:var(--muted);margin:6px 0 0}
+.meter{min-width:220px;flex:0 1 280px}
+.meter .row{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.bar{height:8px;background:var(--line);border-radius:99px;overflow:hidden;margin-top:6px}
+.bar>i{display:block;height:100%;background:var(--gold);border-radius:99px;transition:width .4s}
+nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line)}
+nav.tabs .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+nav.tabs a{flex:0 0 auto;padding:12px 14px;color:var(--muted);text-decoration:none;font-weight:600;font-size:14px;border-bottom:3px solid transparent}
+nav.tabs a[aria-current="page"]{color:var(--ink);border-color:var(--gold)}
+nav.tabs a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--sea);outline-offset:2px}
+main{padding-block:24px 64px}
+h2{font-family:var(--f-display);font-weight:800;font-size:24px;margin:0 0 4px;letter-spacing:-.01em;text-wrap:balance}
+h3{font-size:16px;margin:0}
+.lead{color:var(--muted);margin:0 0 20px;max-width:65ch}
+.label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+button,.btn{font:inherit;font-weight:600;font-size:14px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:8px 14px;cursor:pointer}
+button:hover{border-color:var(--sea)}
+button.primary{background:var(--sea);border-color:var(--sea);color:var(--paper)}
+button.ghost{background:transparent}
+button.small{padding:4px 10px;font-size:13px}
+button[disabled]{opacity:.45;cursor:default}
+select,input[type=text]{font:inherit;font-size:15px;padding:8px 10px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);max-width:100%}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:16px}
+.toolbar .grow{flex:1}
+
+/* Lộ trình */
+.method{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:0 0 28px;padding:0;list-style:none;counter-reset:m}
+.method li{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px;counter-increment:m}
+.method li::before{content:"Bước " counter(m);display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-ink);font-weight:700;margin-bottom:4px}
+.method b{display:block}
+.method span{color:var(--muted);font-size:13.5px}
+.phase{margin-bottom:28px}
+.phase-head{display:flex;flex-wrap:wrap;gap:4px 16px;align-items:baseline;margin-bottom:10px}
+.phase-head .gram{font-size:13px;color:var(--sea);font-weight:600}
+.days{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.day{display:flex;flex-direction:column;gap:2px;text-align:left;padding:10px 12px;border-radius:var(--r);border:1px solid var(--line);background:var(--card);cursor:pointer;font-weight:400}
+.day .d{font-weight:700;font-variant-numeric:tabular-nums}
+.day .t{font-size:12.5px;color:var(--muted);line-height:1.35}
+.day.done{background:var(--good-soft);border-color:transparent}
+.day.done .d::after{content:" ✓";color:var(--good)}
+.day.wk{background:var(--sea-soft);border-color:transparent}
+.day .d{font-size:14.5px;line-height:1.3}
+.day.today{border-color:var(--gold);box-shadow:inset 0 0 0 1px var(--gold)}
+
+/* Học */
+.daybar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:6px}
+.daybar h2{margin:0;flex:1 1 auto}
+.review-note{background:var(--gold-soft);color:var(--ink);border-radius:8px;padding:10px 14px;font-size:14px;margin:12px 0 18px}
+.review-note a{color:var(--gold-ink);font-weight:600}
+.slist{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.slist li{display:grid;grid-template-columns:44px 1fr auto;gap:4px 10px;padding:12px 0;border-bottom:1px solid var(--line);align-items:start}
+.slist .n{font-variant-numeric:tabular-nums;color:var(--muted);font-size:13px;padding-top:2px}
+.slist .txt{min-width:0}
+.slist .en{font-weight:600;font-size:16px}
+.slist .vi{color:var(--muted)}
+.slist .acts{display:flex;gap:4px}
+.icon{width:34px;height:34px;padding:0;display:inline-grid;place-items:center;border-radius:8px}
+.icon svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.icon.on{color:var(--gold-ink);border-color:var(--gold);background:var(--gold-soft)}
+.hide-en .en,.hide-vi .vi{filter:blur(6px);cursor:pointer;user-select:none}
+.hide-en .en.show,.hide-vi .vi.show{filter:none}
+.topic-tag{display:inline-block;font-size:11.5px;font-weight:600;color:var(--sea);background:var(--sea-soft);padding:2px 8px;border-radius:99px;margin:14px 0 4px}
+
+/* Ôn tập */
+.setup{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;margin-bottom:20px}
+.setup label{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted);font-weight:600}
+.setup .go{display:flex;align-items:flex-end}
+.modes{display:flex;flex-wrap:wrap;gap:6px;grid-column:1/-1}
+.modes button{font-weight:600}
+.modes button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.qbox{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;max-width:680px}
+.qhead{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;margin-bottom:12px}
+.prompt{font-size:20px;font-weight:600;line-height:1.4;margin:0 0 6px}
+.hint{color:var(--muted);margin:0 0 16px}
+.opts{display:grid;gap:8px}
+.opts button{text-align:left;font-weight:500;padding:12px 14px}
+.opts button.right{background:var(--good-soft);border-color:var(--good)}
+.opts button.wrong{background:var(--bad-soft);border-color:var(--bad)}
+.answer{margin-top:14px;padding:12px 14px;border-radius:8px;background:var(--paper)}
+.answer.ok{background:var(--good-soft)}
+.answer.no{background:var(--bad-soft)}
+.answer .en{font-weight:600}
+.qfoot{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.flash{min-height:150px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:10px;cursor:pointer;border:1px dashed var(--line);border-radius:var(--r);padding:20px}
+.flash .back{font-size:20px;font-weight:700;color:var(--sea)}
+.result{text-align:center;padding:10px}
+.result .big{font-family:var(--f-display);font-size:48px;font-weight:800;font-variant-numeric:tabular-nums}
+.qlist{list-style:none;padding:0;margin:0;counter-reset:q}
+.qlist li{counter-increment:q;padding:10px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:44px 1fr;gap:2px 10px}
+.qlist li::before{content:counter(q);color:var(--muted);font-variant-numeric:tabular-nums;font-size:13px;padding-top:2px}
+.qlist .q{min-width:0}
+.qlist details summary{cursor:pointer;color:var(--sea);font-size:13.5px;font-weight:600}
+.qlist details p{margin:4px 0 0;font-weight:600}
+
+/* Từ vựng */
+.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.vbox{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:10px 14px;margin:0 0 14px;max-width:560px}
+.vbox summary{cursor:pointer;font-weight:600;font-size:14px;color:var(--sea)}
+.vbox table{width:100%;border-collapse:collapse;font-size:14px;margin-top:6px}
+.vbox td{padding:5px 8px 5px 0;border-top:1px solid var(--line);vertical-align:top}
+.vbox td.w{font-weight:600}.vbox td.p{color:var(--muted);font-size:12px;font-style:italic;width:44px}
+.dlg{margin-top:28px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;scroll-margin-top:60px}
+.dlg-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:8px}
+.dlg-head h3{font-family:var(--f-display);font-size:19px;font-weight:800;text-wrap:balance}
+.pill{font-size:12.5px;font-weight:600;background:var(--good-soft);color:var(--good);padding:3px 10px;border-radius:99px;font-variant-numeric:tabular-nums}
+.dlg .modes{margin-bottom:4px}
+.chat{display:flex;flex-direction:column;gap:10px;margin:14px 0;max-width:640px}
+.msg{display:flex;flex-direction:column;max-width:85%}
+.msg .b{padding:10px 14px;border-radius:14px;line-height:1.45}
+.msg .en{font-weight:600}
+.msg .vi{color:var(--muted);font-size:13.5px;margin-top:2px}
+.msg.them{align-self:flex-start}
+.msg.them .b{background:var(--sea-soft);border-bottom-left-radius:4px}
+.msg.me{align-self:flex-end;align-items:flex-end}
+.msg.me .b{background:var(--paper);border:1px solid var(--line);border-bottom-right-radius:4px}
+.msg.me.ok .b{background:var(--good-soft);border-color:transparent}
+.msg.me.no .b{background:var(--bad-soft);border-color:transparent}
+.msg .tools{display:flex;gap:2px;margin-top:2px}
+.msg .tools button{border:0;padding:2px 8px;font-size:12.5px;color:var(--sea)}
+.timer{height:6px;background:var(--line);border-radius:99px;overflow:hidden;max-width:640px}
+.timer i{display:block;height:100%;width:100%;background:var(--sea);border-radius:99px;transition:width .1s linear}
+.timer i.low{background:var(--bad)}
+.tlabel{display:flex;justify-content:space-between;max-width:640px;font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums;margin-top:4px}
+.dlg .opts{max-width:640px}
+.dlg-result{display:flex;flex-wrap:wrap;gap:12px 32px;margin-top:6px}
+.dlg-result .big{font-family:var(--f-display);font-size:30px;font-weight:800;font-variant-numeric:tabular-nums}
+.vcard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px}
+.vcard h3{margin-bottom:8px;font-size:15px}
+.vcard table{width:100%;border-collapse:collapse;font-size:14px}
+.vcard td{padding:5px 0;border-top:1px solid var(--line);vertical-align:top}
+.vcard td.w{font-weight:600}
+.vcard td.p{color:var(--muted);font-size:12px;width:44px;font-style:italic}
+.vcard .qb{margin-top:10px}
+
+/* Ngữ pháp */
+.tsum{overflow-x:auto;margin-bottom:24px;border:1px solid var(--line);border-radius:var(--r);background:var(--card)}
+.tsum table{border-collapse:collapse;width:100%;min-width:620px;font-size:14px}
+.tsum th,.tsum td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.tsum th{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.tsum tr:last-child td{border-bottom:0}
+.tsum code,.gcard code{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:13px;color:var(--sea)}
+.gcard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;margin-bottom:16px}
+.gcard h3{font-family:var(--f-display);font-size:20px;font-weight:800}
+.gcard .en-name{color:var(--muted);font-weight:500;font-size:14px;margin-left:6px}
+.gcols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:12px}
+.gcols>div{min-width:0}
+.gcard ul{margin:4px 0 0;padding-left:18px}
+.forms{width:100%;border-collapse:collapse;font-size:14px;margin-top:4px}
+.forms td{padding:6px 8px 6px 0;border-top:1px solid var(--line);vertical-align:top}
+.forms td:first-child{font-weight:600;width:92px}
+.forms .ex{color:var(--muted);font-size:13px}
+.tip{margin-top:12px;background:var(--gold-soft);padding:10px 12px;border-radius:8px;font-size:14px}
+.signal{margin-top:10px;font-size:14px}
+.gex{margin-top:14px;border-top:1px solid var(--line);padding-top:12px}
+.gq{margin:10px 0}
+.gq p{margin:0 0 6px;font-weight:600}
+.gq .chips{display:flex;flex-wrap:wrap;gap:6px}
+.gq .chips button{font-weight:500;padding:5px 12px}
+.gq .chips button.right{background:var(--good-soft);border-color:var(--good)}
+.gq .chips button.wrong{background:var(--bad-soft);border-color:var(--bad)}
+.muted{color:var(--muted)}
+@media (max-width:520px){
+  .slist li{grid-template-columns:34px 1fr;}
+  .slist .acts{grid-column:2}
+  .prompt{font-size:18px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.chips button{font-weight:600;font-size:13px;padding:6px 12px;border-radius:99px}
+.chips button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.qa{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.qa>li{padding:14px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:6px 12px}
+.qa .qtxt{min-width:0}
+.qa .qen{font-weight:700;font-size:16.5px;line-height:1.4}
+.qa .qvi{color:var(--muted);font-size:14px}
+.qa .cat{font-size:11.5px;font-weight:600;color:var(--sea);background:var(--sea-soft);padding:2px 8px;border-radius:99px;display:inline-block;margin-bottom:4px}
+.qa .acts{display:flex;gap:4px;align-items:flex-start}
+.ans{grid-column:1/-1;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;max-width:70ch}
+.ans .aen{font-size:15.5px;line-height:1.6}
+.ans .aen mark{background:var(--gold-soft);color:inherit;border-radius:3px;padding:0 2px}
+.ans .avi{color:var(--muted);font-size:14px;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.ans .tip{margin-top:10px}
+.ans .row{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.icon.ok{color:var(--good);border-color:var(--good);background:var(--good-soft)}
+.stats{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:13.5px;color:var(--muted);margin-bottom:14px;font-variant-numeric:tabular-nums}
+.stats b{color:var(--ink)}
+.search{flex:1 1 220px}
+.ptimer{height:6px;background:var(--line);border-radius:99px;overflow:hidden;margin:4px 0}
+.ptimer i{display:block;height:100%;background:var(--sea);width:100%;transition:width .2s linear}
+.vt{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:var(--r);margin-bottom:18px}
+.vt table{border-collapse:collapse;width:100%;min-width:560px;font-size:14px}
+.vt th,.vt td{padding:8px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.vt th{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.vt tr:last-child td{border-bottom:0}
+.vt td.w{font-weight:700;white-space:nowrap}
+.vt td.ex{color:var(--muted)}
+.vt td.s{width:44px}
+.vt .icon{width:30px;height:30px}
+.tips{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px;margin-bottom:24px}
+.tipc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.tipc h3{margin-bottom:8px}
+.tipc ol,.tipc ul{margin:0;padding-left:20px}
+.tipc li{margin:4px 0}
+.phr{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.phr li{display:grid;grid-template-columns:1fr auto;gap:2px 10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.phr .pen{font-weight:600}
+.phr .pvi{color:var(--muted);font-size:14px}
+.phr .sit{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-ink);font-weight:700;margin-top:14px;display:block}
+</style>
+</head>
+<body>
+
+
+<header class="top wrap">
+  <div class="brand">
+    <div>
+      <h1>QA Interview <span class="num">English</span></h1>
+      <p class="sub">Câu hỏi phỏng vấn QA, câu trả lời mẫu bằng tiếng Anh đơn giản, từ vựng chuyên ngành</p>
+    </div>
+    <div class="meter" aria-live="polite">
+      <div class="row"><span>Câu đã thuộc</span><span id="meterTxt"></span></div>
+      <div class="bar"><i id="meterBar" style="width:0%"></i></div>
+    </div>
+  </div>
+</header>
+<nav class="tabs" aria-label="Mục">
+  <div class="wrap">
+    <a href="#cau-hoi" data-v="cau-hoi">Câu hỏi &amp; trả lời</a>
+    <a href="#luyen-noi" data-v="luyen-noi">Luyện trả lời</a>
+    <a href="#tu-vung" data-v="tu-vung">Từ vựng QA</a>
+    <a href="#meo" data-v="meo">Mẹo &amp; câu cứu nguy</a>
+  </div>
+</nav>
+<main class="wrap">
+  <section id="v-cau-hoi" hidden></section>
+  <section id="v-luyen-noi" hidden></section>
+  <section id="v-tu-vung" hidden></section>
+  <section id="v-meo" hidden></section>
+</main>
+
+<script>
+const DATA = {"qa":[{"c":0,"q":"Can you tell me about yourself?","qv":"Bạn hãy giới thiệu về bản thân.","a":"My name is Thao. I'm a QA engineer with [X] years of experience in web and mobile testing. I do both manual and automation testing. I have worked with Selenium, Appium, and Postman. Recently, I tested a real-time stock trading app for a Japanese client. I'm now learning JavaScript to grow into an SDET role.","av":"Tôi tên Thảo. Tôi là kỹ sư QA với [X] năm kinh nghiệm kiểm thử web và mobile. Tôi làm cả kiểm thử thủ công và tự động. Tôi đã làm với Selenium, Appium và Postman. Gần đây tôi kiểm thử một ứng dụng giao dịch chứng khoán thời gian thực cho khách hàng Nhật. Hiện tôi đang học JavaScript để phát triển lên vị trí SDET.","t":"Giữ trong 1 phút: hiện tại (bạn là ai) → kinh nghiệm chính → dự án nổi bật → mục tiêu. Thay [X] bằng số năm thật."},{"c":0,"q":"Can you describe your current project?","qv":"Bạn mô tả dự án hiện tại được không?","a":"I'm working on a stock trading app for a Japanese securities company. I test the real-time order book, which shows stock prices that update every second. I also test the passkey login feature on web and iOS. I write test cases, find bugs, and report them in Japanese to the client team.","av":"Tôi đang làm một ứng dụng giao dịch chứng khoán cho một công ty chứng khoán Nhật. Tôi kiểm thử bảng giá (order book) thời gian thực, nơi giá cổ phiếu cập nhật mỗi giây. Tôi cũng kiểm thử tính năng đăng nhập bằng passkey trên web và iOS. Tôi viết test case, tìm lỗi và báo lỗi bằng tiếng Nhật cho đội khách hàng.","t":"Không nêu tên khách hàng thật nếu có cam kết bảo mật (NDA). Nói “a Japanese securities company” là đủ."},{"c":0,"q":"What are your main responsibilities?","qv":"Trách nhiệm chính của bạn là gì?","a":"I read the requirements and write test cases. I execute tests, report bugs, and verify bug fixes. I also do regression testing before each release. I work closely with developers and the BA to make sure everyone understands the requirements.","av":"Tôi đọc yêu cầu và viết test case. Tôi chạy test, báo lỗi và kiểm tra lại lỗi đã sửa. Tôi cũng làm kiểm thử hồi quy trước mỗi lần phát hành. Tôi làm việc chặt chẽ với lập trình viên và BA để đảm bảo mọi người hiểu đúng yêu cầu.","t":""},{"c":0,"q":"Why did you choose to become a QA engineer?","qv":"Vì sao bạn chọn làm kỹ sư QA?","a":"I like finding problems and thinking about how users will use a product. I'm careful and I pay attention to details. I feel happy when I find an important bug before the user does. QA lets me help the team build a better product.","av":"Tôi thích tìm ra vấn đề và suy nghĩ người dùng sẽ dùng sản phẩm thế nào. Tôi cẩn thận và chú ý chi tiết. Tôi thấy vui khi tìm ra một lỗi quan trọng trước khi người dùng gặp phải. Nghề QA giúp tôi góp phần cùng đội làm ra sản phẩm tốt hơn.","t":""},{"c":0,"q":"What are your strengths?","qv":"Điểm mạnh của bạn là gì?","a":"I'm very detail-oriented, so I often find bugs that others miss. I'm also good at communication. I can read Japanese specifications and report bugs in Japanese, which helps when working with Japanese clients.","av":"Tôi rất chú ý chi tiết nên hay tìm ra những lỗi người khác bỏ sót. Tôi cũng giao tiếp tốt. Tôi đọc được tài liệu đặc tả tiếng Nhật và báo lỗi bằng tiếng Nhật, rất có ích khi làm với khách hàng Nhật.","t":"Mỗi điểm mạnh nên kèm một ví dụ hoặc bằng chứng."},{"c":0,"q":"What is your weakness?","qv":"Điểm yếu của bạn là gì?","a":"My English speaking is not very fluent yet. To improve, I practice speaking every day and I use English in my work emails. I'm also still learning programming, so I'm studying JavaScript and building small projects.","av":"Khả năng nói tiếng Anh của tôi chưa thật trôi chảy. Để cải thiện, tôi luyện nói mỗi ngày và dùng tiếng Anh trong email công việc. Tôi cũng đang học lập trình nên đang học JavaScript và làm các dự án nhỏ.","t":"Nói một điểm yếu thật nhưng không quá nghiêm trọng, và luôn kèm việc bạn đang làm để cải thiện."},{"c":0,"q":"Why do you want to leave your current job?","qv":"Vì sao bạn muốn nghỉ công việc hiện tại?","a":"I have learned a lot in my current job. Now I want to grow more in automation testing, and I'm looking for a company where I can write more automation scripts and learn from a strong team.","av":"Tôi đã học được rất nhiều ở công việc hiện tại. Giờ tôi muốn phát triển thêm về kiểm thử tự động, và tôi đang tìm một công ty nơi tôi có thể viết nhiều script tự động hơn và học hỏi từ một đội mạnh.","t":"Không nói xấu công ty cũ. Tập trung vào điều bạn muốn hướng tới."},{"c":0,"q":"Why do you want to work for our company?","qv":"Vì sao bạn muốn làm việc cho công ty chúng tôi?","a":"I read about your products and I think they are interesting. I also saw that your team uses automation and Agile, which matches my goals. I believe my experience in web and mobile testing can help your team.","av":"Tôi đã tìm hiểu về sản phẩm của công ty và thấy rất thú vị. Tôi cũng thấy đội của anh chị dùng kiểm thử tự động và Agile, phù hợp với mục tiêu của tôi. Tôi tin kinh nghiệm kiểm thử web và mobile của tôi có thể giúp ích cho đội.","t":"Trước buổi phỏng vấn, tìm hiểu sản phẩm của công ty và thay câu đầu bằng chi tiết cụ thể."},{"c":0,"q":"Where do you see yourself in five years?","qv":"Bạn thấy mình ở đâu sau năm năm nữa?","a":"In five years, I want to be a senior SDET. I want to build automation frameworks and help junior testers learn. I also want to be able to work confidently in English.","av":"Trong năm năm, tôi muốn là một SDET cấp cao. Tôi muốn xây dựng framework kiểm thử tự động và giúp các bạn tester mới học hỏi. Tôi cũng muốn làm việc tự tin bằng tiếng Anh.","t":""},{"c":1,"q":"What is software testing?","qv":"Kiểm thử phần mềm là gì?","a":"Software testing is the process of checking if a product works as expected. We compare the actual result with the expected result. The goal is to find bugs early and make sure the product meets the requirements.","av":"Kiểm thử phần mềm là quá trình kiểm tra xem sản phẩm có hoạt động như mong đợi không. Chúng ta so sánh kết quả thực tế với kết quả mong đợi. Mục tiêu là tìm lỗi sớm và đảm bảo sản phẩm đáp ứng yêu cầu.","t":""},{"c":1,"q":"What is the difference between QA and QC?","qv":"QA và QC khác nhau thế nào?","a":"QA is about the process. It tries to prevent bugs, for example by improving how the team works. QC is about the product. It finds bugs by testing the product. QA is proactive and QC is reactive.","av":"QA tập trung vào quy trình, nhằm phòng ngừa lỗi, ví dụ cải thiện cách đội làm việc. QC tập trung vào sản phẩm, tìm lỗi bằng cách kiểm thử sản phẩm. QA mang tính chủ động phòng ngừa, QC mang tính phát hiện.","t":""},{"c":1,"q":"What is the difference between verification and validation?","qv":"Verification và validation khác nhau thế nào?","a":"Verification asks \"Are we building the product right?\" We check documents and design, for example with reviews. Validation asks \"Are we building the right product?\" We test the real product to see if it meets the user's needs.","av":"Verification hỏi “Chúng ta làm sản phẩm có đúng cách không?”, kiểm tra tài liệu và thiết kế, ví dụ bằng review. Validation hỏi “Chúng ta có làm đúng sản phẩm người dùng cần không?”, kiểm thử sản phẩm thật.","t":""},{"c":1,"q":"Can you explain the STLC?","qv":"Bạn giải thích vòng đời kiểm thử (STLC) được không?","a":"STLC has six main steps. First, requirement analysis. Second, test planning. Third, test case design. Fourth, test environment setup. Fifth, test execution. And last, test closure, where we write the test report.","av":"STLC có sáu bước chính: phân tích yêu cầu, lập kế hoạch kiểm thử, thiết kế test case, chuẩn bị môi trường kiểm thử, thực thi kiểm thử, và kết thúc kiểm thử, khi viết báo cáo kiểm thử.","t":"Đếm bằng First, Second, Third… giúp câu trả lời rõ ràng và dễ nói."},{"c":1,"q":"What is the difference between functional and non-functional testing?","qv":"Kiểm thử chức năng và phi chức năng khác nhau thế nào?","a":"Functional testing checks what the system does, for example, can the user log in. Non-functional testing checks how well the system works, for example performance, security, and usability.","av":"Kiểm thử chức năng kiểm tra hệ thống làm gì, ví dụ người dùng có đăng nhập được không. Kiểm thử phi chức năng kiểm tra hệ thống hoạt động tốt đến đâu, ví dụ hiệu năng, bảo mật, tính dễ dùng.","t":""},{"c":1,"q":"What is regression testing?","qv":"Kiểm thử hồi quy là gì?","a":"Regression testing means testing old features again after a code change. We do it to make sure the new change didn't break anything that worked before. It's a good candidate for automation because we run it many times.","av":"Kiểm thử hồi quy là kiểm thử lại các tính năng cũ sau khi code thay đổi, để đảm bảo thay đổi mới không làm hỏng những gì trước đó đang chạy tốt. Đây là phần nên tự động hóa vì phải chạy nhiều lần.","t":""},{"c":1,"q":"What is the difference between smoke testing and sanity testing?","qv":"Smoke test và sanity test khác nhau thế nào?","a":"Smoke testing is a quick test of the main features on a new build. It checks if the build is stable enough for more testing. Sanity testing is a quick check of one specific area after a small change or bug fix.","av":"Smoke test là kiểm tra nhanh các tính năng chính trên một bản build mới, để xem bản build đủ ổn định để kiểm thử tiếp không. Sanity test là kiểm tra nhanh một phần cụ thể sau một thay đổi nhỏ hoặc sau khi sửa lỗi.","t":""},{"c":1,"q":"What is the difference between retesting and regression testing?","qv":"Retest và regression test khác nhau thế nào?","a":"Retesting means testing a bug again after it is fixed, to confirm the fix works. Regression testing means testing other related features to make sure the fix didn't create new bugs.","av":"Retest là kiểm thử lại chính lỗi đó sau khi sửa, để xác nhận đã sửa đúng. Regression test là kiểm thử các tính năng liên quan khác để đảm bảo việc sửa lỗi không tạo ra lỗi mới.","t":""},{"c":1,"q":"What is the difference between black-box and white-box testing?","qv":"Kiểm thử hộp đen và hộp trắng khác nhau thế nào?","a":"In black-box testing, we test without looking at the code. We only check inputs and outputs. In white-box testing, we know the code and we test the internal logic, like paths and conditions.","av":"Kiểm thử hộp đen là kiểm thử không cần xem code, chỉ kiểm tra đầu vào và đầu ra. Kiểm thử hộp trắng là biết code và kiểm thử logic bên trong, như các nhánh và điều kiện.","t":""},{"c":1,"q":"Can you explain boundary value analysis and equivalence partitioning?","qv":"Giải thích phân tích giá trị biên và phân vùng tương đương.","a":"Equivalence partitioning divides input data into groups that should behave the same, so we test one value from each group. Boundary value analysis tests the values at the edges. For example, if age must be 18 to 60, I test 17, 18, 60, and 61.","av":"Phân vùng tương đương chia dữ liệu đầu vào thành các nhóm có cùng cách xử lý, nên chỉ cần test một giá trị mỗi nhóm. Phân tích giá trị biên kiểm thử các giá trị ở rìa. Ví dụ nếu tuổi phải từ 18 đến 60, tôi test 17, 18, 60 và 61.","t":"Luôn đưa ví dụ cụ thể. Người phỏng vấn đánh giá cao việc bạn áp dụng được."},{"c":1,"q":"What is exploratory testing?","qv":"Kiểm thử thăm dò là gì?","a":"Exploratory testing is testing without detailed test cases. The tester learns the product, designs tests, and runs them at the same time. It's useful when time is short or when the requirements are not clear.","av":"Kiểm thử thăm dò là kiểm thử không có test case chi tiết. Tester vừa tìm hiểu sản phẩm, vừa thiết kế và chạy test cùng lúc. Cách này hữu ích khi thiếu thời gian hoặc yêu cầu chưa rõ ràng.","t":""},{"c":1,"q":"What testing types have you done?","qv":"Bạn đã làm những loại kiểm thử nào?","a":"I have done functional testing, regression testing, smoke testing, API testing, and UI testing on web and mobile. I have also done compatibility testing on different browsers, like checking analytics tags on Safari and Chrome.","av":"Tôi đã làm kiểm thử chức năng, hồi quy, smoke test, kiểm thử API và giao diện trên web và mobile. Tôi cũng làm kiểm thử tương thích trên các trình duyệt khác nhau, như kiểm tra thẻ analytics trên Safari và Chrome.","t":""},{"c":2,"q":"How do you write a good test case?","qv":"Bạn viết một test case tốt thế nào?","a":"A good test case is clear and easy to follow. It has an ID, a title, preconditions, test steps, test data, and an expected result. Each test case should test one thing. Another person should be able to run it without asking me.","av":"Một test case tốt phải rõ ràng, dễ làm theo. Nó có mã, tiêu đề, điều kiện tiên quyết, các bước, dữ liệu test và kết quả mong đợi. Mỗi test case chỉ kiểm tra một điều. Người khác có thể chạy mà không cần hỏi tôi.","t":""},{"c":2,"q":"What is the difference between a test case and a test scenario?","qv":"Test case và test scenario khác nhau thế nào?","a":"A test scenario is a high-level idea of what to test, for example \"Check the login function.\" A test case is detailed. It has exact steps, data, and expected results, for example \"Log in with a wrong password.\"","av":"Test scenario là ý tưởng tổng quát cần kiểm thử gì, ví dụ “Kiểm tra chức năng đăng nhập”. Test case thì chi tiết, có bước, dữ liệu và kết quả mong đợi cụ thể, ví dụ “Đăng nhập với mật khẩu sai”.","t":""},{"c":2,"q":"How would you test a login page?","qv":"Bạn sẽ kiểm thử trang đăng nhập thế nào?","a":"First, I test valid login with a correct username and password. Then I test negative cases: wrong password, empty fields, and a locked account. I also check the password is hidden, the error messages are clear, and the \"Forgot password\" link works. Finally, I check security, like SQL injection and too many failed attempts.","av":"Đầu tiên, tôi test đăng nhập hợp lệ với tài khoản và mật khẩu đúng. Sau đó tôi test các trường hợp sai: sai mật khẩu, để trống, tài khoản bị khóa. Tôi cũng kiểm tra mật khẩu được ẩn, thông báo lỗi rõ ràng và link “Quên mật khẩu” hoạt động. Cuối cùng tôi kiểm tra bảo mật, như SQL injection và đăng nhập sai quá nhiều lần.","t":"Câu hỏi rất hay gặp. Chia ý: positive → negative → UI → security."},{"c":2,"q":"What should a good bug report include?","qv":"Một báo cáo lỗi tốt cần có gì?","a":"A good bug report has a clear title, steps to reproduce, the expected result, and the actual result. I also add the environment, like the device, OS, and browser, plus screenshots or videos and logs. I set the severity and priority too.","av":"Một báo cáo lỗi tốt có tiêu đề rõ ràng, các bước tái hiện, kết quả mong đợi và kết quả thực tế. Tôi cũng ghi môi trường như thiết bị, hệ điều hành, trình duyệt, kèm ảnh chụp hoặc video và log. Tôi cũng đặt mức độ nghiêm trọng và độ ưu tiên.","t":""},{"c":2,"q":"What is the difference between severity and priority?","qv":"Severity và priority khác nhau thế nào?","a":"Severity is how serious the bug is for the system. Priority is how soon we need to fix it. For example, a spelling mistake in the company logo is low severity but high priority. An app crash in a rarely used feature can be high severity but lower priority.","av":"Severity là lỗi nghiêm trọng đến mức nào với hệ thống. Priority là cần sửa gấp đến mức nào. Ví dụ lỗi chính tả ở logo công ty có severity thấp nhưng priority cao. App bị crash ở một tính năng ít dùng có thể severity cao nhưng priority thấp hơn.","t":"Ví dụ “logo sai chính tả” là cách giải thích kinh điển, nên học thuộc."},{"c":2,"q":"Can you explain the bug life cycle?","qv":"Bạn giải thích vòng đời của lỗi được không?","a":"When I find a bug, its status is New. The lead assigns it to a developer, so it becomes Assigned. The developer fixes it and changes it to Fixed. I retest it. If it works, I close it. If not, I reopen it. A bug can also be Rejected or Deferred.","av":"Khi tôi tìm thấy lỗi, trạng thái là New. Trưởng nhóm giao cho lập trình viên nên thành Assigned. Lập trình viên sửa xong chuyển thành Fixed. Tôi kiểm tra lại. Nếu ổn tôi đóng lỗi (Closed), nếu chưa thì mở lại (Reopened). Lỗi cũng có thể bị từ chối (Rejected) hoặc hoãn lại (Deferred).","t":""},{"c":2,"q":"What do you do if a developer says \"It's not a bug\"?","qv":"Bạn làm gì nếu lập trình viên nói “Đó không phải lỗi”?","a":"First, I check the requirement again to make sure I understand it correctly. Then I show the developer clear evidence, like steps, screenshots, and the related part of the spec. If we still don't agree, I ask the BA or product owner to decide.","av":"Đầu tiên tôi đọc lại yêu cầu để chắc mình hiểu đúng. Sau đó tôi đưa cho lập trình viên bằng chứng rõ ràng như các bước, ảnh chụp và phần đặc tả liên quan. Nếu vẫn chưa thống nhất, tôi nhờ BA hoặc product owner quyết định.","t":""},{"c":2,"q":"What do you do if a bug can't be reproduced?","qv":"Bạn làm gì nếu lỗi không tái hiện được?","a":"I try again with different data, devices, and network conditions. I check the logs, for example in Datadog, and the network requests in Proxyman. I write down everything I tried. If I still can't reproduce it, I report it with all the details and mark it as hard to reproduce.","av":"Tôi thử lại với dữ liệu, thiết bị và điều kiện mạng khác nhau. Tôi kiểm tra log, ví dụ trên Datadog, và các request mạng trên Proxyman. Tôi ghi lại mọi thứ đã thử. Nếu vẫn không tái hiện được, tôi báo lỗi kèm đầy đủ chi tiết và ghi chú là khó tái hiện.","t":""},{"c":2,"q":"How do you decide what to test first when time is short?","qv":"Khi thiếu thời gian, bạn quyết định test gì trước?","a":"I use risk-based testing. I test the most important features first, like login, payment, or placing an order. I also focus on areas with recent changes and areas that had many bugs before. Then I tell my lead clearly what I didn't have time to test.","av":"Tôi dùng kiểm thử dựa trên rủi ro. Tôi test các tính năng quan trọng nhất trước, như đăng nhập, thanh toán, đặt lệnh. Tôi cũng tập trung vào phần mới thay đổi và phần trước đây có nhiều lỗi. Sau đó tôi báo rõ với trưởng nhóm những gì chưa kịp test.","t":""},{"c":3,"q":"What automation tools have you used?","qv":"Bạn đã dùng những công cụ tự động hóa nào?","a":"I have used Selenium for web automation and Appium for mobile automation on iOS. I'm now learning JavaScript and frameworks like Playwright. I also use Postman to test APIs.","av":"Tôi đã dùng Selenium để tự động hóa web và Appium để tự động hóa mobile trên iOS. Hiện tôi đang học JavaScript và các framework như Playwright. Tôi cũng dùng Postman để kiểm thử API.","t":"Chỉ nói những công cụ bạn thật sự đã dùng. Người phỏng vấn sẽ hỏi sâu."},{"c":3,"q":"Which test cases should be automated?","qv":"Những test case nào nên tự động hóa?","a":"We should automate test cases that run many times, like regression tests and smoke tests. Also tests that are stable, take a long time to run manually, or need a lot of data. We should not automate tests that change often or only run once.","av":"Nên tự động hóa những test case chạy nhiều lần như regression và smoke test. Cả những test ổn định, chạy tay mất nhiều thời gian hoặc cần nhiều dữ liệu. Không nên tự động hóa những test hay thay đổi hoặc chỉ chạy một lần.","t":""},{"c":3,"q":"What is a locator? Which locators do you prefer?","qv":"Locator là gì? Bạn thích dùng loại locator nào?","a":"A locator is a way to find an element on the page. Common locators are ID, name, CSS selector, and XPath. I prefer ID or a test ID because they are fast and stable. I use XPath only when there is no better option.","av":"Locator là cách để tìm một phần tử trên trang. Các locator phổ biến là ID, name, CSS selector và XPath. Tôi thích dùng ID hoặc test ID vì nhanh và ổn định. Tôi chỉ dùng XPath khi không có lựa chọn tốt hơn.","t":""},{"c":3,"q":"What is the difference between implicit wait and explicit wait?","qv":"Implicit wait và explicit wait khác nhau thế nào?","a":"An implicit wait is set once and applies to all elements. An explicit wait waits for a specific condition, for example until a button is clickable. Explicit wait is better because it's more precise. We should avoid using sleep.","av":"Implicit wait được đặt một lần và áp dụng cho mọi phần tử. Explicit wait chờ một điều kiện cụ thể, ví dụ đến khi nút bấm được. Explicit wait tốt hơn vì chính xác hơn. Nên tránh dùng sleep.","t":""},{"c":3,"q":"What is the Page Object Model?","qv":"Page Object Model là gì?","a":"Page Object Model is a design pattern. Each page of the app has its own class with its elements and actions. The test scripts call these methods. It makes the code easier to read and maintain, because if the UI changes, we only update one place.","av":"Page Object Model là một mẫu thiết kế. Mỗi trang của ứng dụng có một class riêng chứa các phần tử và thao tác. Script test gọi các hàm này. Code dễ đọc và dễ bảo trì hơn, vì khi giao diện thay đổi chỉ cần sửa một chỗ.","t":""},{"c":3,"q":"What is a flaky test and how do you fix it?","qv":"Flaky test là gì và bạn xử lý thế nào?","a":"A flaky test sometimes passes and sometimes fails without any code change. Common causes are timing issues, unstable test data, or bad locators. I fix it by using explicit waits, stable locators, and independent test data.","av":"Flaky test là test lúc pass lúc fail dù code không đổi. Nguyên nhân thường gặp là vấn đề thời gian chờ, dữ liệu test không ổn định hoặc locator kém. Tôi xử lý bằng explicit wait, locator ổn định và dữ liệu test độc lập.","t":""},{"c":3,"q":"What challenges have you faced in mobile automation?","qv":"Bạn gặp khó khăn gì khi tự động hóa mobile?","a":"In iOS automation with Appium, I had problems setting up WebDriverAgent, like code signing errors. I also had a compatibility issue because my Mac couldn't run the newest Xcode version. I solved it by reading the documentation, checking the logs carefully, and using the correct Xcode version.","av":"Khi tự động hóa iOS với Appium, tôi gặp vấn đề cài đặt WebDriverAgent, như lỗi ký code. Tôi cũng gặp vấn đề tương thích vì máy Mac không chạy được bản Xcode mới nhất. Tôi giải quyết bằng cách đọc tài liệu, kiểm tra log kỹ và dùng đúng phiên bản Xcode.","t":"Kể một khó khăn thật: vấn đề → bạn đã làm gì → kết quả."},{"c":3,"q":"What is CI/CD and how does testing fit in?","qv":"CI/CD là gì và kiểm thử nằm ở đâu trong đó?","a":"CI/CD means continuous integration and continuous delivery. Every time developers push code, the pipeline builds the app and runs automated tests automatically. If a test fails, the team knows quickly. This helps us find bugs early.","av":"CI/CD là tích hợp liên tục và chuyển giao liên tục. Mỗi lần lập trình viên đẩy code lên, pipeline tự động build ứng dụng và chạy test tự động. Nếu có test fail, cả đội biết ngay. Điều này giúp phát hiện lỗi sớm.","t":""},{"c":4,"q":"What is API testing?","qv":"Kiểm thử API là gì?","a":"API testing checks the communication between systems without using the UI. I send a request and check the response: the status code, the data, and the response time. It's faster than UI testing and can find bugs earlier.","av":"Kiểm thử API kiểm tra việc giao tiếp giữa các hệ thống mà không qua giao diện. Tôi gửi request và kiểm tra response: mã trạng thái, dữ liệu và thời gian phản hồi. Cách này nhanh hơn kiểm thử giao diện và tìm lỗi sớm hơn.","t":""},{"c":4,"q":"What HTTP methods and status codes do you know?","qv":"Bạn biết những phương thức HTTP và mã trạng thái nào?","a":"The common methods are GET to read data, POST to create, PUT or PATCH to update, and DELETE to remove. Common status codes are 200 OK, 201 Created, 400 Bad Request, 401 Unauthorized, 403 Forbidden, 404 Not Found, and 500 Internal Server Error.","av":"Các phương thức phổ biến: GET để đọc dữ liệu, POST để tạo, PUT hoặc PATCH để cập nhật, DELETE để xóa. Các mã phổ biến: 200 OK, 201 đã tạo, 400 request sai, 401 chưa xác thực, 403 bị cấm, 404 không tìm thấy, 500 lỗi máy chủ.","t":""},{"c":4,"q":"How do you use Postman in your work?","qv":"Bạn dùng Postman trong công việc thế nào?","a":"I use Postman to send API requests and check the responses. I organize requests in collections and use environment variables for different servers. I also write simple tests in Postman to check the status code and the response data.","av":"Tôi dùng Postman để gửi request API và kiểm tra response. Tôi sắp xếp request theo collection và dùng biến môi trường cho các server khác nhau. Tôi cũng viết test đơn giản trong Postman để kiểm tra mã trạng thái và dữ liệu trả về.","t":""},{"c":4,"q":"How do you check network traffic and logs?","qv":"Bạn kiểm tra lưu lượng mạng và log thế nào?","a":"I use Proxyman to see the requests and responses between the app and the server. This helps me find out if a bug is on the front end or the back end. I also use Datadog to check server logs and errors.","av":"Tôi dùng Proxyman để xem request và response giữa ứng dụng và máy chủ. Điều này giúp tôi biết lỗi nằm ở front end hay back end. Tôi cũng dùng Datadog để xem log và lỗi phía máy chủ.","t":""},{"c":4,"q":"How do you test analytics or tracking tags?","qv":"Bạn kiểm thử thẻ analytics hoặc tracking thế nào?","a":"I use Google Tag Manager preview mode and the browser developer tools to check if tags fire at the right time. I check the event names and parameters in GA4. I also test on different browsers, because Safari sometimes blocks tracking.","av":"Tôi dùng chế độ preview của Google Tag Manager và công cụ dành cho nhà phát triển của trình duyệt để kiểm tra thẻ có kích hoạt đúng lúc không. Tôi kiểm tra tên sự kiện và tham số trong GA4. Tôi cũng test trên nhiều trình duyệt vì Safari đôi khi chặn tracking.","t":""},{"c":4,"q":"How do you test real-time data?","qv":"Bạn kiểm thử dữ liệu thời gian thực thế nào?","a":"In my stock app project, prices update through WebSocket. I check that the data updates correctly and on time, and I compare it with the source data. I also test what happens when the network is slow or disconnected, and if the app reconnects correctly.","av":"Trong dự án app chứng khoán, giá cập nhật qua WebSocket. Tôi kiểm tra dữ liệu cập nhật đúng và kịp thời, và so sánh với dữ liệu nguồn. Tôi cũng test khi mạng chậm hoặc mất kết nối, và xem app có kết nối lại đúng không.","t":"Đây là điểm khác biệt của bạn. Nói tự tin và có thể kể thêm chi tiết nếu được hỏi."},{"c":4,"q":"How do you use Git in your work?","qv":"Bạn dùng Git trong công việc thế nào?","a":"I use Git and SourceTree to get the latest code, switch between branches, and test specific builds. For my automation scripts, I commit my changes, push them, and create pull requests for review.","av":"Tôi dùng Git và SourceTree để lấy code mới nhất, chuyển giữa các nhánh và test các bản build cụ thể. Với script tự động, tôi commit thay đổi, push lên và tạo pull request để được review.","t":""},{"c":5,"q":"What is your role in an Agile team?","qv":"Vai trò của bạn trong đội Agile là gì?","a":"I join all the Scrum meetings, like sprint planning, daily stand-up, and retrospective. In planning, I help estimate testing tasks and ask questions about the user stories. During the sprint, I test each story as soon as it's ready, not only at the end.","av":"Tôi tham gia các buổi họp Scrum như lập kế hoạch sprint, họp đứng hằng ngày và họp cải tiến. Khi lập kế hoạch, tôi giúp ước lượng công việc kiểm thử và đặt câu hỏi về user story. Trong sprint, tôi test mỗi story ngay khi sẵn sàng, không đợi đến cuối.","t":""},{"c":5,"q":"What do you do if the requirements are not clear?","qv":"Bạn làm gì nếu yêu cầu không rõ ràng?","a":"I write down my questions and ask the BA or product owner early. I don't guess. While I wait for the answer, I write test cases for the parts that are clear. When I work with Japanese clients, I prepare my questions in Japanese so they are easy to understand.","av":"Tôi ghi lại câu hỏi và hỏi BA hoặc product owner sớm. Tôi không đoán. Trong lúc chờ, tôi viết test case cho phần đã rõ. Khi làm với khách hàng Nhật, tôi chuẩn bị câu hỏi bằng tiếng Nhật cho dễ hiểu.","t":""},{"c":5,"q":"Tell me about a difficult bug you found.","qv":"Kể về một lỗi khó mà bạn đã tìm ra.","a":"In the stock app, the price sometimes didn't update after the phone came back from the background. It only happened after a few minutes. I tested different waiting times, checked the WebSocket connection in Proxyman, and found the app didn't reconnect. I reported it with clear steps and logs, and the developer fixed it quickly.","av":"Trong app chứng khoán, giá đôi khi không cập nhật khi điện thoại quay lại từ chế độ nền, và chỉ xảy ra sau vài phút. Tôi thử nhiều khoảng thời gian chờ khác nhau, kiểm tra kết nối WebSocket bằng Proxyman và phát hiện app không kết nối lại. Tôi báo lỗi kèm các bước rõ ràng và log, và lập trình viên đã sửa nhanh.","t":"Đây là ví dụ mẫu. Hãy thay bằng một lỗi thật bạn từng gặp, kể theo STAR: tình huống → nhiệm vụ → hành động → kết quả."},{"c":5,"q":"What would you do if you missed a bug and it went to production?","qv":"Bạn làm gì nếu bỏ sót lỗi và lỗi lên môi trường thật?","a":"First, I report it to the team quickly and help reproduce it so it can be fixed. Then I find out why I missed it. Maybe a test case was missing. I add new test cases and, if possible, an automated test so it doesn't happen again.","av":"Đầu tiên tôi báo ngay cho đội và giúp tái hiện lỗi để sửa. Sau đó tôi tìm hiểu vì sao mình bỏ sót, có thể do thiếu test case. Tôi bổ sung test case mới, và nếu được thì thêm test tự động để không lặp lại.","t":""},{"c":5,"q":"How do you handle a tight deadline?","qv":"Bạn xử lý thế nào khi deadline gấp?","a":"I prioritize the most important test cases first. I talk to my lead early if I think we can't finish everything. I keep the team updated about what is tested and what risks are left. Sometimes I work a little extra, but good planning is more important.","av":"Tôi ưu tiên các test case quan trọng nhất trước. Tôi báo sớm với trưởng nhóm nếu thấy không thể làm xong hết. Tôi cập nhật cho đội những gì đã test và những rủi ro còn lại. Đôi khi tôi làm thêm một chút, nhưng lập kế hoạch tốt quan trọng hơn.","t":""},{"c":5,"q":"How do you work with developers?","qv":"Bạn làm việc với lập trình viên thế nào?","a":"I try to have a good relationship with developers. I write clear bug reports so they can fix bugs quickly. I talk about the problem, not the person. Sometimes I sit with them to reproduce a bug together.","av":"Tôi cố gắng giữ quan hệ tốt với lập trình viên. Tôi viết báo cáo lỗi rõ ràng để họ sửa nhanh. Tôi nói về vấn đề chứ không nói về con người. Đôi khi tôi ngồi cùng họ để tái hiện lỗi.","t":""},{"c":5,"q":"How do you keep learning?","qv":"Bạn tự học thêm như thế nào?","a":"I study for the ISTQB certificate and I'm learning JavaScript for automation. I built a small self-study course and put it on GitHub. I also watch videos, read testing blogs, and try new tools, like AI tools for writing test cases.","av":"Tôi học để lấy chứng chỉ ISTQB và đang học JavaScript cho tự động hóa. Tôi đã làm một khóa tự học nhỏ và đưa lên GitHub. Tôi cũng xem video, đọc blog về kiểm thử và thử công cụ mới, như công cụ AI để viết test case.","t":""},{"c":6,"q":"Do you have any questions for us?","qv":"Bạn có câu hỏi nào cho chúng tôi không?","a":"Yes, I have a few questions. Could you tell me more about the team I would join? How many testers and developers are there?","av":"Vâng, tôi có vài câu hỏi. Anh chị có thể chia sẻ thêm về đội tôi sẽ tham gia không? Có bao nhiêu tester và lập trình viên?","t":"Luôn chuẩn bị 2–3 câu hỏi. Trả lời “Không có câu hỏi nào” dễ bị đánh giá là thiếu quan tâm."},{"c":6,"q":"(Bạn hỏi) Về quy trình kiểm thử","qv":"Hỏi về quy trình và tỷ lệ manual/automation","a":"What does the testing process look like here? How much of the testing is manual and how much is automated?","av":"Quy trình kiểm thử ở đây như thế nào? Tỷ lệ kiểm thử thủ công và tự động là bao nhiêu?","t":""},{"c":6,"q":"(Bạn hỏi) Về công cụ","qv":"Hỏi về công cụ đội đang dùng","a":"Which tools and frameworks does your QA team use?","av":"Đội QA của anh chị dùng những công cụ và framework nào?","t":""},{"c":6,"q":"(Bạn hỏi) Về cơ hội phát triển","qv":"Hỏi về đào tạo và lộ trình","a":"Are there opportunities to learn and grow, for example to move into automation or get training?","av":"Ở đây có cơ hội học hỏi và phát triển không, ví dụ chuyển sang làm tự động hóa hoặc được đào tạo?","t":""},{"c":6,"q":"(Bạn hỏi) Về bước tiếp theo","qv":"Hỏi về các vòng tiếp theo","a":"What are the next steps in the interview process?","av":"Các bước tiếp theo của quy trình phỏng vấn là gì?","t":""}],"cats":["Giới thiệu & kinh nghiệm","Kiến thức kiểm thử cơ bản","Test case & quản lý lỗi","Kiểm thử tự động","API & công cụ","Agile & tình huống","Câu hỏi bạn hỏi lại nhà tuyển dụng"],"vocab":[{"c":0,"w":"requirement","m":"yêu cầu","e":"I read the requirements before I write test cases."},{"c":0,"w":"specification (spec)","m":"tài liệu đặc tả","e":"The spec says the button should be disabled."},{"c":0,"w":"user story","m":"câu chuyện người dùng (mô tả tính năng)","e":"I ask questions about the user story in sprint planning."},{"c":0,"w":"acceptance criteria","m":"tiêu chí chấp nhận","e":"This story has three acceptance criteria."},{"c":0,"w":"test plan","m":"kế hoạch kiểm thử","e":"The test plan explains the scope and the schedule."},{"c":0,"w":"test case","m":"trường hợp kiểm thử","e":"I wrote fifty test cases for this feature."},{"c":0,"w":"test scenario","m":"kịch bản kiểm thử","e":"One scenario can have many test cases."},{"c":0,"w":"test data","m":"dữ liệu kiểm thử","e":"We need test data for a locked account."},{"c":0,"w":"precondition","m":"điều kiện tiên quyết","e":"Precondition: the user is logged in."},{"c":0,"w":"expected result","m":"kết quả mong đợi","e":"The expected result is a success message."},{"c":0,"w":"actual result","m":"kết quả thực tế","e":"The actual result is a blank screen."},{"c":0,"w":"test coverage","m":"độ bao phủ kiểm thử","e":"We need better test coverage for payment."},{"c":0,"w":"traceability matrix","m":"ma trận truy vết","e":"The traceability matrix links requirements to test cases."},{"c":0,"w":"test report","m":"báo cáo kiểm thử","e":"I send a test report at the end of each sprint."},{"c":0,"w":"scope","m":"phạm vi","e":"Performance testing is out of scope."},{"c":0,"w":"estimate","m":"ước lượng","e":"I estimate two days for testing this story."},{"c":1,"w":"functional testing","m":"kiểm thử chức năng","e":"Functional testing checks what the system does."},{"c":1,"w":"non-functional testing","m":"kiểm thử phi chức năng","e":"Performance is part of non-functional testing."},{"c":1,"w":"regression testing","m":"kiểm thử hồi quy","e":"We run regression testing before every release."},{"c":1,"w":"smoke testing","m":"kiểm thử khói (kiểm tra nhanh bản build)","e":"The smoke test failed, so we rejected the build."},{"c":1,"w":"sanity testing","m":"kiểm thử tỉnh táo (kiểm tra nhanh sau sửa)","e":"I did a sanity test after the hotfix."},{"c":1,"w":"retesting","m":"kiểm thử lại lỗi đã sửa","e":"I retested the bug and closed it."},{"c":1,"w":"exploratory testing","m":"kiểm thử thăm dò","e":"I did one hour of exploratory testing."},{"c":1,"w":"integration testing","m":"kiểm thử tích hợp","e":"Integration testing checks how modules work together."},{"c":1,"w":"end-to-end testing (E2E)","m":"kiểm thử đầu cuối","e":"The E2E test covers login to checkout."},{"c":1,"w":"user acceptance testing (UAT)","m":"kiểm thử chấp nhận người dùng","e":"The client will do UAT next week."},{"c":1,"w":"compatibility testing","m":"kiểm thử tương thích","e":"We do compatibility testing on Safari and Chrome."},{"c":1,"w":"performance testing","m":"kiểm thử hiệu năng","e":"Performance testing showed the page is slow."},{"c":1,"w":"security testing","m":"kiểm thử bảo mật","e":"Security testing found a CSRF problem."},{"c":1,"w":"usability testing","m":"kiểm thử tính dễ dùng","e":"Usability testing checks if the app is easy to use."},{"c":1,"w":"positive / negative test","m":"test hợp lệ / test không hợp lệ","e":"A negative test uses invalid data."},{"c":1,"w":"edge case","m":"trường hợp biên, hiếm gặp","e":"What happens in this edge case?"},{"c":2,"w":"bug / defect","m":"lỗi","e":"I found a defect in the order screen."},{"c":2,"w":"bug report","m":"báo cáo lỗi","e":"Please add a video to the bug report."},{"c":2,"w":"steps to reproduce","m":"các bước tái hiện","e":"The steps to reproduce are very clear."},{"c":2,"w":"reproduce","m":"tái hiện","e":"I can't reproduce this bug on Android."},{"c":2,"w":"severity","m":"mức độ nghiêm trọng","e":"This is a high-severity bug."},{"c":2,"w":"priority","m":"mức độ ưu tiên","e":"Please fix this with high priority."},{"c":2,"w":"blocker","m":"lỗi chặn (không test tiếp được)","e":"This bug is a blocker for the release."},{"c":2,"w":"crash","m":"ứng dụng bị sập","e":"The app crashes when I tap Save."},{"c":2,"w":"workaround","m":"cách xử lý tạm","e":"Is there a workaround for this issue?"},{"c":2,"w":"root cause","m":"nguyên nhân gốc","e":"We found the root cause of the problem."},{"c":2,"w":"intermittent","m":"lúc có lúc không","e":"It's an intermittent issue."},{"c":2,"w":"duplicate","m":"trùng lặp","e":"This bug is a duplicate of bug 123."},{"c":2,"w":"reopen","m":"mở lại","e":"The bug still happens, so I reopened it."},{"c":2,"w":"verify a fix","m":"xác nhận lỗi đã sửa","e":"I will verify the fix tomorrow."},{"c":2,"w":"known issue","m":"lỗi đã biết","e":"It's a known issue in this version."},{"c":2,"w":"hotfix","m":"bản sửa lỗi gấp","e":"They released a hotfix this morning."},{"c":3,"w":"automation script","m":"kịch bản tự động","e":"I wrote an automation script for login."},{"c":3,"w":"framework","m":"khung kiểm thử","e":"We use a Page Object Model framework."},{"c":3,"w":"locator","m":"bộ định vị phần tử","e":"This locator is not stable."},{"c":3,"w":"element","m":"phần tử trên trang","e":"The test can't find the element."},{"c":3,"w":"assertion","m":"khẳng định / phép kiểm tra","e":"The assertion checks the page title."},{"c":3,"w":"explicit wait","m":"chờ có điều kiện","e":"Use an explicit wait instead of sleep."},{"c":3,"w":"flaky test","m":"test không ổn định","e":"We fixed three flaky tests this week."},{"c":3,"w":"test suite","m":"bộ test","e":"The regression suite has 300 tests."},{"c":3,"w":"pipeline","m":"quy trình tự động build và test","e":"The pipeline runs tests on every commit."},{"c":3,"w":"continuous integration (CI)","m":"tích hợp liên tục","e":"Our tests run in CI."},{"c":3,"w":"headless","m":"chạy trình duyệt không giao diện","e":"We run Chrome in headless mode."},{"c":3,"w":"parallel execution","m":"chạy song song","e":"Parallel execution makes the suite faster."},{"c":3,"w":"maintain","m":"bảo trì","e":"It's hard to maintain these scripts."},{"c":3,"w":"mock","m":"giả lập","e":"We mock the browser API in the test."},{"c":3,"w":"emulator / simulator","m":"máy giả lập","e":"I tested Face ID on the iOS simulator."},{"c":3,"w":"real device","m":"thiết bị thật","e":"Some bugs only happen on a real device."},{"c":4,"w":"API","m":"giao diện lập trình ứng dụng","e":"The API returns the price data."},{"c":4,"w":"endpoint","m":"điểm truy cập API","e":"Which endpoint should I call?"},{"c":4,"w":"request / response","m":"yêu cầu / phản hồi","e":"The response is empty."},{"c":4,"w":"status code","m":"mã trạng thái","e":"The status code is 500."},{"c":4,"w":"payload","m":"dữ liệu gửi kèm","e":"The payload is in JSON format."},{"c":4,"w":"header","m":"phần đầu của request","e":"Add the token to the header."},{"c":4,"w":"authentication","m":"xác thực (bạn là ai)","e":"Passkey is a new authentication method."},{"c":4,"w":"authorization","m":"phân quyền (bạn được làm gì)","e":"This user has no authorization to delete."},{"c":4,"w":"token","m":"mã xác thực","e":"The token expired after one hour."},{"c":4,"w":"environment","m":"môi trường","e":"The bug only happens in the staging environment."},{"c":4,"w":"staging / production","m":"môi trường thử / môi trường thật","e":"We test on staging before production."},{"c":4,"w":"front end / back end","m":"phía giao diện / phía máy chủ","e":"Is this a front-end or back-end bug?"},{"c":4,"w":"log","m":"nhật ký hệ thống","e":"Please check the server log."},{"c":4,"w":"latency","m":"độ trễ","e":"The latency is too high."},{"c":4,"w":"real-time","m":"thời gian thực","e":"Prices update in real time."},{"c":4,"w":"build / version","m":"bản build / phiên bản","e":"Which build are you testing?"},{"c":5,"w":"sprint","m":"chu kỳ phát triển ngắn","e":"Our sprint is two weeks long."},{"c":5,"w":"backlog","m":"danh sách việc cần làm","e":"This story is still in the backlog."},{"c":5,"w":"daily stand-up","m":"họp đứng hằng ngày","e":"I share my progress in the daily stand-up."},{"c":5,"w":"sprint planning","m":"lập kế hoạch sprint","e":"We estimate tasks in sprint planning."},{"c":5,"w":"retrospective","m":"họp cải tiến cuối sprint","e":"In the retrospective, we discuss what to improve."},{"c":5,"w":"deadline","m":"hạn chót","e":"The deadline is next Friday."},{"c":5,"w":"release","m":"phát hành","e":"The release is planned for Monday."},{"c":5,"w":"stakeholder","m":"các bên liên quan","e":"We demo the feature to stakeholders."},{"c":5,"w":"product owner (PO)","m":"chủ sản phẩm","e":"The PO decides the priority."},{"c":5,"w":"business analyst (BA)","m":"chuyên viên phân tích nghiệp vụ","e":"I asked the BA about this rule."},{"c":5,"w":"collaborate","m":"hợp tác","e":"I collaborate closely with developers."},{"c":5,"w":"escalate","m":"báo lên cấp trên","e":"I escalated the issue to my manager."},{"c":5,"w":"follow up","m":"theo dõi tiếp","e":"I'll follow up with the developer."},{"c":5,"w":"on track","m":"đúng tiến độ","e":"Testing is on track."},{"c":5,"w":"risk","m":"rủi ro","e":"The biggest risk is the payment feature."},{"c":5,"w":"sign-off","m":"xác nhận hoàn tất","e":"QA gave the sign-off for the release."}],"vcats":["Quy trình & tài liệu","Loại kiểm thử","Lỗi & quản lý lỗi","Tự động hóa","API & kỹ thuật","Agile & làm việc nhóm"],"phrases":[{"s":"Khi chưa nghe rõ","en":"Sorry, could you repeat the question, please?","vi":"Xin lỗi, anh/chị nhắc lại câu hỏi được không?"},{"s":"Khi chưa nghe rõ","en":"Could you speak a little more slowly, please?","vi":"Anh/chị nói chậm hơn một chút được không?"},{"s":"Khi chưa nghe rõ","en":"Do you mean …? / So you're asking about …, right?","vi":"Ý anh/chị là … phải không?"},{"s":"Khi cần thời gian suy nghĩ","en":"That's a good question. Let me think for a moment.","vi":"Câu hỏi hay. Để tôi suy nghĩ một chút."},{"s":"Khi cần thời gian suy nghĩ","en":"Let me give you an example from my project.","vi":"Để tôi lấy một ví dụ từ dự án của tôi."},{"s":"Khi cần thời gian suy nghĩ","en":"There are a few points. First, …","vi":"Có vài ý. Thứ nhất, …"},{"s":"Khi không biết câu trả lời","en":"I haven't worked with that tool yet, but I'm a fast learner.","vi":"Tôi chưa làm với công cụ đó, nhưng tôi học nhanh."},{"s":"Khi không biết câu trả lời","en":"I'm not 100% sure, but I think …","vi":"Tôi không chắc chắn hoàn toàn, nhưng tôi nghĩ …"},{"s":"Khi không biết câu trả lời","en":"I don't know the exact answer, but I would find out by …","vi":"Tôi không biết chính xác, nhưng tôi sẽ tìm hiểu bằng cách …"},{"s":"Khi nói sai hoặc bí từ","en":"Sorry, let me say that again.","vi":"Xin lỗi, để tôi nói lại."},{"s":"Khi nói sai hoặc bí từ","en":"I'm not sure of the English word, but it means …","vi":"Tôi không chắc từ tiếng Anh, nhưng nó có nghĩa là …"},{"s":"Khi nói sai hoặc bí từ","en":"In other words, …","vi":"Nói cách khác, …"},{"s":"Mở đầu và kết thúc","en":"Thank you for having me today.","vi":"Cảm ơn anh/chị đã mời tôi hôm nay."},{"s":"Mở đầu và kết thúc","en":"Thank you for your time. I really enjoyed talking with you.","vi":"Cảm ơn anh/chị đã dành thời gian. Tôi rất vui khi được trò chuyện."},{"s":"Mở đầu và kết thúc","en":"I look forward to hearing from you.","vi":"Tôi mong nhận được phản hồi của anh/chị."},{"s":"Phỏng vấn online","en":"Sorry, my connection is a bit unstable. Can you hear me now?","vi":"Xin lỗi, mạng của tôi hơi chập chờn. Giờ anh/chị nghe rõ không?"},{"s":"Phỏng vấn online","en":"Can I share my screen to show you?","vi":"Tôi chia sẻ màn hình để cho anh/chị xem được không?"}]};
+(function(){
+const QA = DATA.qa, CATS = DATA.cats, VOC = DATA.vocab, VCATS = DATA.vcats, PHR = DATA.phrases;
+const $ = (s, r=document) => r.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const shuffle = a => { a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; };
+const KEY='qa-interview-v1';
+let st = { known:[], practice:{} };
+try { const r = localStorage.getItem(KEY); if (r) st = Object.assign(st, JSON.parse(r)); } catch(e){}
+const save = () => { try{ localStorage.setItem(KEY, JSON.stringify(st)); }catch(e){} meter(); };
+function meter(){ $('#meterTxt').textContent = st.known.length + ' / ' + QA.length; $('#meterBar').style.width = (st.known.length/QA.length*100)+'%'; }
+const canSpeak = 'speechSynthesis' in window;
+function speak(t){ if(!canSpeak) return; try{ speechSynthesis.cancel(); const u=new SpeechSynthesisUtterance(t.replace(/\[X\]/g,'three')); u.lang='en-US'; u.rate=.88; speechSynthesis.speak(u);}catch(e){} }
+const ICON = {
+  sound:'<svg viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></svg>',
+  check:'<svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>'
+};
+// làm nổi bật từ vựng chuyên ngành trong câu trả lời
+const TERMS = [];
+VOC.forEach(v => v.w.split('/').forEach(p => { p = p.replace(/\(.*?\)/g,'').trim(); if (p.length>3) TERMS.push(p); }));
+TERMS.sort((a,b)=>b.length-a.length);
+const termRe = new RegExp('\\b(' + TERMS.map(t=>t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|') + ')s?\\b', 'gi');
+const hl = s => esc(s).replace(termRe, m => '<mark>'+m+'</mark>').replace(/\[X\]/g,'<mark>[X]</mark>');
+
+// ---------- router ----------
+const VIEWS=['cau-hoi','luyen-noi','tu-vung','meo'];
+function route(){
+  let v = location.hash.replace('#',''); if(!VIEWS.includes(v)) v='cau-hoi';
+  VIEWS.forEach(x => $('#v-'+x).hidden = x!==v);
+  document.querySelectorAll('nav.tabs a').forEach(a => { if(a.dataset.v===v) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
+  ({'cau-hoi':renderQA,'luyen-noi':renderPractice,'tu-vung':renderVocab,'meo':renderTips})[v]();
+  window.scrollTo(0,0);
+}
+window.addEventListener('hashchange', route);
+
+// ---------- CÂU HỎI ----------
+let qaCat = -1, qaSearch = '', showAll = false;
+function renderQA(){
+  const el = $('#v-cau-hoi');
+  el.innerHTML = `<h2>${QA.length} câu hỏi phỏng vấn QA</h2>
+  <p class="lead">Câu trả lời mẫu dùng câu ngắn, từ đơn giản, dựa trên kinh nghiệm thực tế của bạn. Thay phần <mark style="background:var(--gold-soft);color:inherit">[X]</mark> bằng số liệu thật. Từ vựng chuyên ngành được tô màu.</p>
+  <div class="chips" role="group" aria-label="Nhóm câu hỏi"><button data-c="-1" aria-pressed="${qaCat===-1}">Tất cả</button>${CATS.map((c,i)=>`<button data-c="${i}" aria-pressed="${qaCat===i}">${esc(c)}</button>`).join('')}</div>
+  <div class="toolbar"><input type="text" id="qs" class="search" placeholder="Tìm câu hỏi, ví dụ: bug, API, yourself" value="${esc(qaSearch)}" aria-label="Tìm câu hỏi"><button class="small" id="tgAll">${showAll?'Ẩn':'Hiện'} tất cả câu trả lời</button></div>
+  <ol class="qa" id="qaList"></ol>`;
+  el.querySelectorAll('[data-c]').forEach(b => b.onclick = () => { qaCat=+b.dataset.c; renderQA(); });
+  $('#qs').oninput = e => { qaSearch = e.target.value; list(); };
+  $('#tgAll').onclick = () => { showAll=!showAll; renderQA(); };
+  list();
+  function list(){
+    const q = qaSearch.trim().toLowerCase();
+    const items = QA.map((x,i)=>[x,i]).filter(([x]) => (qaCat<0 || x.c===qaCat) && (!q || (x.q+x.qv+x.a+x.av).toLowerCase().includes(q)));
+    const ul = $('#qaList');
+    if (!items.length){ ul.innerHTML = '<li style="display:block" class="muted">Không có câu hỏi nào khớp. Thử từ khóa khác.</li>'; return; }
+    ul.innerHTML = items.map(([x,i]) => {
+      const known = st.known.includes(i);
+      return `<li data-i="${i}"><div class="qtxt">${qaCat<0?`<span class="cat">${esc(CATS[x.c])}</span>`:''}<div class="qen">${esc(x.q)}</div><div class="qvi">${esc(x.qv)}</div></div>
+      <div class="acts">${canSpeak && !x.q.startsWith('(')?`<button class="icon" data-say="q" aria-label="Nghe câu hỏi">${ICON.sound}</button>`:''}<button class="small" data-open aria-expanded="${showAll}">${showAll?'Ẩn':'Trả lời'}</button></div>
+      <div class="ans" ${showAll?'':'hidden'}><div class="aen">${hl(x.a)}</div><div class="avi">${esc(x.av)}</div>${x.t?`<div class="tip"><b>Mẹo:</b> ${esc(x.t)}</div>`:''}
+      <div class="row">${canSpeak?`<button class="small" data-say="a">Nghe câu trả lời</button>`:''}<button class="small ${known?'':'primary'}" data-known>${known?'Đã thuộc ✓':'Đánh dấu đã thuộc'}</button></div></div></li>`;
+    }).join('');
+    ul.querySelectorAll('li[data-i]').forEach(li => {
+      const x = QA[+li.dataset.i], i = +li.dataset.i;
+      const o = li.querySelector('[data-open]');
+      o.onclick = () => { const a = li.querySelector('.ans'); a.hidden = !a.hidden; o.textContent = a.hidden?'Trả lời':'Ẩn'; o.setAttribute('aria-expanded', !a.hidden); };
+      li.querySelectorAll('[data-say]').forEach(b => b.onclick = () => speak(b.dataset.say==='q'?x.q:x.a));
+      const k = li.querySelector('[data-known]');
+      k.onclick = () => { const on = st.known.includes(i); st.known = on ? st.known.filter(y=>y!==i) : st.known.concat(i); save(); k.textContent = on?'Đánh dấu đã thuộc':'Đã thuộc ✓'; k.classList.toggle('primary', on); };
+    });
+  }
+}
+
+// ---------- LUYỆN TRẢ LỜI ----------
+let P = null, pScope = 'all', pSec = 60;
+function renderPractice(){
+  const el = $('#v-luyen-noi');
+  el.innerHTML = `<h2>Luyện trả lời như phỏng vấn thật</h2>
+  <p class="lead">App đọc câu hỏi bằng tiếng Anh. Bạn trả lời to trong thời gian quy định, sau đó so với câu trả lời mẫu và tự chấm. Câu chấm “Cần luyện thêm” sẽ được hỏi lại nhiều hơn.</p>
+  <div class="setup">
+    <label for="pScope">Câu hỏi<select id="pScope"><option value="all">Tất cả nhóm</option><option value="weak">Câu cần luyện thêm</option><option value="new">Câu chưa thuộc</option>${CATS.map((c,i)=>`<option value="c${i}">${esc(c)}</option>`).join('')}</select></label>
+    <label for="pSec">Thời gian trả lời<select id="pSec"><option value="45">45 giây</option><option value="60">60 giây</option><option value="90">90 giây</option></select></label>
+    <label for="pHideVi" style="flex-direction:row;align-items:center;gap:8px;align-self:end;padding-bottom:10px"><input type="checkbox" id="pHideVi" checked> Ẩn nghĩa tiếng Việt của câu hỏi</label>
+    <div class="go"><button class="primary" id="pStart">Bắt đầu</button></div>
+  </div><div id="pArea"></div>`;
+  $('#pScope').value = pScope; $('#pSec').value = String(pSec);
+  $('#pStart').onclick = start;
+  if (P) showP(); else $('#pArea').innerHTML = `<div class="qbox"><p class="label">Ví dụ câu hỏi</p><p class="prompt">${esc(QA[0].q)}</p><p class="muted" style="margin:0">Bấm “Bắt đầu” để luyện 10 câu hỏi ngẫu nhiên.</p></div>`;
+  function start(){
+    pScope = $('#pScope').value; pSec = +$('#pSec').value;
+    let pool = QA.map((x,i)=>i).filter(i => !QA[i].q.startsWith('('));
+    if (pScope==='weak') pool = pool.filter(i => st.practice[i]==='bad');
+    else if (pScope==='new') pool = pool.filter(i => !st.known.includes(i));
+    else if (pScope[0]==='c') pool = pool.filter(i => QA[i].c===+pScope.slice(1));
+    if (!pool.length){ $('#pArea').innerHTML = `<div class="qbox"><p class="muted" style="margin:0">${pScope==='weak'?'Chưa có câu nào bị chấm “Cần luyện thêm”.':'Bạn đã thuộc hết câu trong nhóm này.'} Hãy chọn nhóm khác.</p></div>`; return; }
+    const weighted = shuffle(pool).sort((a,b)=>(st.practice[b]==='bad')-(st.practice[a]==='bad'));
+    P = { items: shuffle(weighted.slice(0,10)), i:0, good:0, hideVi: $('#pHideVi').checked };
+    showP();
+  }
+}
+function showP(){
+  const area = $('#pArea'); if (P.timer) clearInterval(P.timer);
+  if (P.i >= P.items.length){
+    area.innerHTML = `<div class="qbox result"><p class="label">Hoàn thành</p><div class="big">${P.good}/${P.items.length}</div><p>câu bạn trả lời tốt. ${P.good<P.items.length?'Chọn “Câu cần luyện thêm” để ôn lại những câu còn yếu.':'Rất tốt, bạn đã sẵn sàng!'}</p><div class="qfoot" style="justify-content:center"><button class="primary" id="pAgain">Luyện tiếp</button></div></div>`;
+    $('#pAgain').onclick = () => { P=null; $('#pStart').click(); };
+    return;
+  }
+  const i = P.items[P.i], x = QA[i];
+  area.innerHTML = `<div class="qbox" style="max-width:720px"><div class="qhead"><span>Câu ${P.i+1}/${P.items.length} · ${esc(CATS[x.c])}</span><span>Tốt ${P.good}</span></div>
+    <p class="label">Interviewer</p><p class="prompt">${esc(x.q)}</p><p class="hint" id="pVi" ${P.hideVi?'hidden':''}>${esc(x.qv)}</p>
+    <div class="ptimer"><i id="pBar"></i></div><div class="tlabel" style="max-width:none"><span>Bạn đang trả lời…</span><span id="pTxt">${pSec} giây</span></div>
+    <div class="qfoot"><button class="primary" id="pDone">Xem câu trả lời mẫu</button>${canSpeak?'<button class="ghost" id="pSayQ">Nghe lại câu hỏi</button>':''}${P.hideVi?'<button class="ghost" id="pShowVi">Dịch câu hỏi</button>':''}</div>
+    <div id="pAns"></div></div>`;
+  speak(x.q);
+  if (canSpeak) $('#pSayQ').onclick = () => speak(x.q);
+  const sv = $('#pShowVi'); if (sv) sv.onclick = () => { $('#pVi').hidden=false; sv.remove(); };
+  const t0 = performance.now();
+  P.timer = setInterval(() => { const left = Math.max(0, pSec - (performance.now()-t0)/1000); $('#pBar').style.width=(left/pSec*100)+'%'; $('#pTxt').textContent = Math.ceil(left)+' giây'; if(left<=0){ clearInterval(P.timer); reveal(); } }, 200);
+  $('#pDone').onclick = reveal;
+  function reveal(){
+    clearInterval(P.timer); $('#pDone').remove();
+    $('#pAns').innerHTML = `<div class="ans" style="margin-top:14px"><p class="label" style="margin:0 0 6px">Câu trả lời mẫu</p><div class="aen">${hl(x.a)}</div><div class="avi">${esc(x.av)}</div>${x.t?`<div class="tip"><b>Mẹo:</b> ${esc(x.t)}</div>`:''}</div>
+      <p class="muted" style="margin:12px 0 6px">Câu trả lời của bạn có đủ ý chính và nói trôi chảy không?</p>
+      <div class="qfoot" style="margin-top:0"><button class="primary" id="pGood">Trả lời tốt</button><button id="pBad">Cần luyện thêm</button>${canSpeak?'<button class="ghost" id="pSayA">Nghe câu mẫu</button>':''}</div>`;
+    if (canSpeak) $('#pSayA').onclick = () => speak(x.a);
+    $('#pGood').onclick = () => { st.practice[i]='good'; P.good++; save(); P.i++; showP(); };
+    $('#pBad').onclick = () => { st.practice[i]='bad'; save(); P.i++; showP(); };
+    $('#pGood').focus({preventScroll:true});
+  }
+}
+
+// ---------- TỪ VỰNG ----------
+let VQ = null;
+function renderVocab(){
+  const el = $('#v-tu-vung');
+  let h = `<h2>${VOC.length} từ vựng QA</h2><p class="lead">Mỗi từ có một câu ví dụ dùng được ngay trong phỏng vấn hoặc khi làm việc. Bài kiểm tra cho câu ví dụ bị che từ, bạn chọn từ đúng.</p>
+  <div class="toolbar"><button class="primary" id="vqAll">Kiểm tra 15 từ ngẫu nhiên</button><select id="vqCat" aria-label="Chọn nhóm từ"><option value="-1">hoặc chọn nhóm…</option>${VCATS.map((c,i)=>`<option value="${i}">${esc(c)}</option>`).join('')}</select></div><div id="vqBox"></div>`;
+  VCATS.forEach((c,ci) => {
+    h += `<h3 style="margin:18px 0 8px">${esc(c)}</h3><div class="vt"><table><thead><tr><th>Từ</th><th>Nghĩa</th><th>Ví dụ</th><th><span class="sr" style="position:absolute;left:-9999px">Nghe</span></th></tr></thead><tbody>`;
+    VOC.forEach((v,i) => { if (v.c===ci) h += `<tr><td class="w">${esc(v.w)}</td><td>${esc(v.m)}</td><td class="ex">${esc(v.e)}</td><td class="s">${canSpeak?`<button class="icon" data-vs="${i}" aria-label="Nghe">${ICON.sound}</button>`:''}</td></tr>`; });
+    h += `</tbody></table></div>`;
+  });
+  el.innerHTML = h;
+  el.querySelectorAll('[data-vs]').forEach(b => b.onclick = () => { const v=VOC[+b.dataset.vs]; speak(v.w.replace(/\(.*?\)/g,'') + '. ' + v.e); });
+  $('#vqAll').onclick = () => vq(shuffle(VOC.map((v,i)=>i)).slice(0,15));
+  $('#vqCat').onchange = e => { const c=+e.target.value; if(c>=0) vq(shuffle(VOC.map((v,i)=>i).filter(i=>VOC[i].c===c))); };
+}
+function blankFor(v){
+  const parts = v.w.split('/').map(p=>p.replace(/\(.*?\)/g,'').trim()).filter(Boolean);
+  for (const p of parts){ const re = new RegExp('\\b'+p.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'(s|ed|es)?\\b','i'); if (re.test(v.e)) return v.e.replace(re, '_____'); }
+  return null;
+}
+function vq(items){ VQ = { items, i:0, score:0 }; showVQ(); $('#vqBox').scrollIntoView({behavior:'smooth',block:'start'}); }
+function showVQ(){
+  const box = $('#vqBox');
+  if (VQ.i >= VQ.items.length){ box.innerHTML = `<div class="qbox result" style="margin-bottom:20px"><p class="label">Kết quả</p><div class="big">${VQ.score}/${VQ.items.length}</div><div class="qfoot" style="justify-content:center"><button class="primary" id="vqAgain">Làm lại</button><button class="ghost" id="vqClose">Đóng</button></div></div>`;
+    $('#vqAgain').onclick = () => vq(shuffle(VQ.items)); $('#vqClose').onclick = () => box.innerHTML=''; return; }
+  const i = VQ.items[VQ.i], v = VOC[i]; const bl = blankFor(v);
+  const others = shuffle(VOC.map((x,j)=>j).filter(j=>j!==i && (VOC[j].c===v.c))).slice(0,3);
+  const opts = shuffle([i].concat(others.length<3 ? others.concat(shuffle(VOC.map((x,j)=>j).filter(j=>j!==i&&!others.includes(j))).slice(0,3-others.length)) : others));
+  const ask = bl ? `<p class="label">Chọn từ phù hợp cho chỗ trống</p><p class="prompt">${esc(bl)}</p><p class="hint">${esc(v.m)}</p>` : `<p class="label">Từ nào có nghĩa là</p><p class="prompt">“${esc(v.m)}”</p>`;
+  box.innerHTML = `<div class="qbox" style="margin-bottom:20px"><div class="qhead"><span>${VQ.i+1}/${VQ.items.length}</span><span>Đúng ${VQ.score}</span></div>${ask}<div class="opts">${opts.map(o=>`<button data-o="${o}">${esc(VOC[o].w)}</button>`).join('')}</div><div id="vqFb"></div></div>`;
+  let done=false;
+  box.querySelectorAll('[data-o]').forEach(b => b.onclick = () => {
+    if (done) return; done=true; const ok = +b.dataset.o===i; if(ok) VQ.score++;
+    box.querySelectorAll('[data-o]').forEach(x => { if(+x.dataset.o===i) x.classList.add('right'); else if(x===b) x.classList.add('wrong'); });
+    $('#vqFb').innerHTML = `<div class="answer ${ok?'ok':'no'}"><div class="en">${esc(v.e)}</div><div class="muted">${esc(v.w)}: ${esc(v.m)}</div></div><div class="qfoot"><button class="primary" id="vqNext">Tiếp</button>${canSpeak?'<button class="ghost" id="vqSay">Nghe</button>':''}</div>`;
+    $('#vqNext').onclick = () => { VQ.i++; showVQ(); }; $('#vqNext').focus({preventScroll:true});
+    if (canSpeak) $('#vqSay').onclick = () => speak(v.e);
+  });
+}
+
+// ---------- MẸO ----------
+function renderTips(){
+  const el = $('#v-meo');
+  let h = `<h2>Mẹo trả lời &amp; câu cứu nguy</h2><p class="lead">Không cần nói tiếng Anh hoàn hảo. Người phỏng vấn QA quan tâm bạn hiểu nghề và giải thích rõ ràng. Câu ngắn, có ví dụ thật là đủ.</p>
+  <div class="tips">
+    <div class="tipc"><h3>Giới thiệu bản thân trong 1 phút</h3><ol><li><b>Hiện tại:</b> I'm a QA engineer with [X] years of experience.</li><li><b>Kỹ năng:</b> I do manual and automation testing with…</li><li><b>Dự án nổi bật:</b> Recently, I tested…</li><li><b>Mục tiêu:</b> I'm now learning… / I want to grow in…</li></ol></div>
+    <div class="tipc"><h3>Kể chuyện theo STAR</h3><ul><li><b>S</b>ituation: In my last project, …</li><li><b>T</b>ask: I needed to …</li><li><b>A</b>ction: So I … (phần dài nhất)</li><li><b>R</b>esult: As a result, …</li></ul><p class="muted" style="margin:8px 0 0;font-size:14px">Dùng cho câu hỏi “Tell me about a time…”, “a difficult bug”, “a conflict”.</p></div>
+    <div class="tipc"><h3>Nói đơn giản để không bị vấp</h3><ul><li>Mỗi câu một ý, khoảng 8–15 từ.</li><li>Dùng từ nối: First, Then, Also, Finally, For example.</li><li>Dùng thì quá khứ đơn khi kể dự án đã làm.</li><li>Định nghĩa xong thì đưa ngay một ví dụ.</li><li>Không biết thì nói thật, rồi nói cách bạn sẽ tìm hiểu.</li></ul></div>
+  </div><h3 style="margin-bottom:4px">Câu cứu nguy khi phỏng vấn</h3><ul class="phr">`;
+  let last='';
+  PHR.forEach((p,i) => { if (p.s!==last){ h += `<li style="display:block;border:0;padding:0"><span class="sit">${esc(p.s)}</span></li>`; last=p.s; }
+    h += `<li><div><div class="pen">${esc(p.en)}</div><div class="pvi">${esc(p.vi)}</div></div>${canSpeak?`<button class="icon" data-ps="${i}" aria-label="Nghe">${ICON.sound}</button>`:''}</li>`; });
+  h += `</ul>`;
+  el.innerHTML = h;
+  el.querySelectorAll('[data-ps]').forEach(b => b.onclick = () => speak(PHR[+b.dataset.ps].en));
+}
+
+meter(); route();
+})();
+</script>
+
+<p style="text-align:center;margin:0;padding:12px 16px 24px"><a href="./" style="color:var(--sea);font-weight:600">← Về trang chủ</a></p>
+</body>
+</html>
