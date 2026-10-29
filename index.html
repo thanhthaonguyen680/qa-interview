@@ -1,5 +1,44 @@
 <!doctype html>
+<html lang="vi">
+<head>
 <meta charset="utf-8">
-<meta http-equiv="refresh" content="0; url=qa-interview.html">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Luyện phỏng vấn QA bằng tiếng Anh">
 <title>QA Interview English</title>
-<a href="qa-interview.html">QA Interview English</a>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top wrap">
+  <div class="brand">
+    <div>
+      <h1>QA Interview <span class="num">English</span></h1>
+      <p class="sub">Câu hỏi phỏng vấn QA, câu trả lời mẫu bằng tiếng Anh đơn giản, từ vựng chuyên ngành</p>
+    </div>
+    <div class="meter" aria-live="polite">
+      <div class="row"><span>Câu đã thuộc</span><span id="meterTxt"></span></div>
+      <div class="bar"><i id="meterBar" style="width:0%"></i></div>
+    </div>
+  </div>
+</header>
+<nav class="tabs" aria-label="Mục">
+  <div class="wrap">
+    <a href="#cau-hoi" data-v="cau-hoi">Câu hỏi &amp; trả lời</a>
+    <a href="#luyen-noi" data-v="luyen-noi">Luyện trả lời</a>
+    <a href="#tu-vung" data-v="tu-vung">Từ vựng QA</a>
+    <a href="#meo" data-v="meo">Mẹo &amp; câu cứu nguy</a>
+  </div>
+</nav>
+<main class="wrap">
+  <section id="v-cau-hoi" hidden></section>
+  <section id="v-luyen-noi" hidden></section>
+  <section id="v-tu-vung" hidden></section>
+  <section id="v-meo" hidden></section>
+</main>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
